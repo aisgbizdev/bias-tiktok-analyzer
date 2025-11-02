@@ -7,7 +7,7 @@ app.use(cors());
 
 app.get("/api/tiktok/:username", async (req, res) => {
   try {
-    const username = req.params.username;
+    const username = decodeURIComponent(req.params.username);
     const result = await scrapeTikTokProfile(username);
 
     res.json({
